@@ -7,15 +7,7 @@
 */
 
 fun main(){
-    val array = arrayOf<Int>(1,2,3,4,5)
-    val reversedArray = reverse(array)
-    println(reversedArray.contentToString())
-
-    val contains = arrayContains(array, 6)
-    println(contains)
-
-    val average = arrayAvg(array)
-    println(average)
+    testReverseArrayFun()
 }
 
 //accepts an array and produces the average of all values
@@ -60,5 +52,26 @@ fun reverse(originalArray: Array<Int>): Array<Int>{
     }
 
     return  reversedArray
+}
+
+fun testReverseArrayFun(){
+    val t1 = arrayOf<Int>(1,2,3,4,5)
+    val r1 = arrayOf<Int>(5,4,3,2,1)
+    val t2 = arrayOf<Int>(11,21,42,73,94,51)
+    val r2 = arrayOf<Int>(51,94,73,42,21,11)
+    val t3 = arrayOf<Int>()
+    val r3 = arrayOf<Int>()
+
+    val tests = arrayOf(t1,t2,t3)
+    val results = listOf(r1,r2,r3)
+
+    for (i in tests.indices){
+        val reversedArray = reverse(tests[i])
+        if (reversedArray contentEquals results[i]){
+            println("Test t${i+1} passed!")
+        }else{
+            println("Test t${i+1} failed!")
+        }
+    }
 }
 
