@@ -7,8 +7,11 @@
 */
 
 fun main(){
-
-    val encryptedText = encrypt("phone", 3)
+    print("Enter a text to encrypt: ")
+    //take input from command line
+    val input = validateInput()
+    //encrypt text
+    val encryptedText = encrypt(input, 3)
     println(encryptedText)
 
     //tests array average function
@@ -19,6 +22,28 @@ fun main(){
 
     //tests reverse function
     testReverseArrayFun()
+}
+
+//validate input
+fun validateInput(): String{
+    var inputIsEmpty = true
+    var plainText = ""
+
+    //while loop runs until the a value is set to plainText
+    while (inputIsEmpty){
+        val userInput = readLine()
+        if(userInput != null){
+            if(userInput.isNotEmpty()){
+                plainText = userInput
+                inputIsEmpty = false
+            }else{
+                print("Text cannot be empty. Enter a text to encrypt: ")
+            }
+        }
+    }
+
+
+    return plainText
 }
 
 //encrypt using Caesar cipher using shift value
