@@ -7,6 +7,10 @@
 */
 
 fun main(){
+
+    val encryptedText = encrypt("phone", 3)
+    println(encryptedText)
+
     //tests array average function
     testArrayAvgFun()
 
@@ -15,6 +19,35 @@ fun main(){
 
     //tests reverse function
     testReverseArrayFun()
+}
+
+//encrypt using Caesar cipher using shift value
+fun encrypt(normalText: String, shiftValue: Int): String{
+    var alphbetLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    var encryptedText = ""
+    //converting all normalText characters to uppercase for making encryption
+    var uppercaseText = normalText.uppercase()
+
+    //loop goes through the uppercaseText acheived from normalText
+    for (s in uppercaseText){
+        //loop goes through the alphabet letters to get the index of the character
+        for (i in alphbetLetters.indices){
+            //compares the upperText characters with the alphabet letters
+            if (s == alphbetLetters[i]){
+                /*
+                Here, the caesar cipher formula is used for encryption where,
+                - i is the key
+                - shiftValue provides by how much the alphabet shoud shift
+                - 26 is the total length of alphabet letters
+                 */
+                val code = (i + shiftValue)%26
+                //code is used as an index in the alphbetLetters to find the appropraite letter for encryption
+                encryptedText += alphbetLetters[code]
+            }
+        }
+    }
+
+    return "The encrypted text for $normalText is: $encryptedText"
 }
 
 //accepts an array and produces the average of all values
