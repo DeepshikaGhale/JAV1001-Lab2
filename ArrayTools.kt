@@ -54,7 +54,9 @@ fun reverse(originalArray: Array<Int>): Array<Int>{
     return  reversedArray
 }
 
+//test reverse array function
 fun testReverseArrayFun(){
+    //initialize test and result of the reversed arrays
     val t1 = arrayOf<Int>(1,2,3,4,5)
     val r1 = arrayOf<Int>(5,4,3,2,1)
     val t2 = arrayOf<Int>(11,21,42,73,94,51)
@@ -62,11 +64,18 @@ fun testReverseArrayFun(){
     val t3 = arrayOf<Int>()
     val r3 = arrayOf<Int>()
 
+    //initialize array for tests and results
     val tests = arrayOf(t1,t2,t3)
-    val results = listOf(r1,r2,r3)
+    val results = arrayOf(r1,r2,r3)
 
+    //loop to go through the array of tests and results
     for (i in tests.indices){
-        val reversedArray = reverse(tests[i])
+        val reversedArray = reverse(tests[i]) //pass the test array inside the reverse function
+        /*
+        - contentEquals compares the value inside of the array
+        - here, contentEquals is used to compare value inside reversedArray and array of results
+        - if the values are equal then passed is printed otherwise failed
+         */
         if (reversedArray contentEquals results[i]){
             println("Test t${i+1} passed!")
         }else{
