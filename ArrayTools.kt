@@ -13,6 +13,24 @@ fun main(){
 
     val contains = arrayContains(array, 6)
     println(contains)
+
+    val average = arrayAvg(array)
+    println(average)
+}
+
+//accepts an array and produces the average of all values
+fun arrayAvg(array: Array<Int>): Double {
+    //initialized to store the sum of all elements of parameter array
+    var sumOfInteger: Int = 0
+
+    //loop goes through the element of given parameter array
+    for (i in array.indices) {
+        //collect the sum of integer of array elements
+        sumOfInteger += array[i]
+    }
+
+    //average value of an array
+    return (sumOfInteger / 2.0)
 }
 
 //accepts an array and a search value, and determines if the array contains the value (true/false)
@@ -20,7 +38,6 @@ fun arrayContains(array: Array<Int>, searchValue: Int): Boolean{
 
     //loop goes through the element of given parameter array
     for (i in array.indices){
-
         //if search value is equal to any element of given array then it returns true
         if(searchValue == array[i]){
             return true
