@@ -7,6 +7,11 @@
 */
 
 fun main(){
+
+    //tests array contains function
+    testArrayContainsFun()
+
+    //tests reverse function
     testReverseArrayFun()
 }
 
@@ -39,6 +44,39 @@ fun arrayContains(array: Array<Int>, searchValue: Int): Boolean{
     //if the search value is not found in the array
     return false
 }
+
+//test arrayContains function
+fun testArrayContainsFun(){
+    //initialize test and result of the reversed arrays
+    val t1 = arrayOf<Int>(1,2,3,4,5)
+    val va1 = 5
+    val r1 = true
+    val t2 = arrayOf<Int>(11,21,42,73,94,51)
+    val va2 = 73
+    val r2 = true
+    val t3 = arrayOf<Int>()
+    val va3 = 10
+    val r3 = false
+
+    //initialize array for tests and results
+    val tests = arrayOf(t1,t2,t3)
+    val searchValues = arrayOf(va1, va2, va3)
+    val results = arrayOf(r1,r2,r3)
+
+    //loop to go through the array of tests and results
+    for (i in tests.indices){
+
+        //pass the test array and searchValue inside the arrayContains function
+        val containsValue = arrayContains(tests[i], searchValues[i])
+        //compare the value of containsValue and results
+        if (containsValue == results[i]){
+            println("Array contains test t${i+1} passed!")
+        }else{
+            println("Array contains test t${i+1} failed!")
+        }
+    }
+}
+
 
 
 //reverses an array
@@ -77,9 +115,9 @@ fun testReverseArrayFun(){
         - if the values are equal then passed is printed otherwise failed
          */
         if (reversedArray contentEquals results[i]){
-            println("Test t${i+1} passed!")
+            println("Reverse array test t${i+1} passed!")
         }else{
-            println("Test t${i+1} failed!")
+            println("Reverse array test t${i+1} failed!")
         }
     }
 }
