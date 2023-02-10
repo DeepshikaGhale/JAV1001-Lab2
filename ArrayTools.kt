@@ -7,6 +7,8 @@
 */
 
 fun main(){
+    //tests array average function
+    testArrayAvgFun()
 
     //tests array contains function
     testArrayContainsFun()
@@ -29,6 +31,33 @@ fun arrayAvg(array: Array<Int>): Double {
     //average value of an array
     return (sumOfInteger / 2.0)
 }
+
+//test array average function
+fun testArrayAvgFun(){
+    //initialize test and result of the reversed arrays
+    val t1 = arrayOf<Int>(1,2,3,4,5)
+    val r1 = 7.5
+    val t2 = arrayOf<Int>(11,21,42,73,94,51)
+    val r2 = 146.0
+    val t3 = arrayOf<Int>()
+    val r3 = 0.0
+
+    //initialize array for tests and results
+    val tests = arrayOf(t1,t2,t3)
+    val results = arrayOf(r1,r2,r3)
+
+    //loop to go through the array of tests and results
+    for (i in tests.indices){
+        val arrayAverage = arrayAvg(tests[i]) //pass the test array inside the array average function
+        //compares the value of arrayAverage and results
+        if (arrayAverage == results[i]){
+            println("Array average test t${i+1} passed!")
+        }else{
+            println("Array average test t${i+1} failed!")
+        }
+    }
+}
+
 
 //accepts an array and a search value, and determines if the array contains the value (true/false)
 fun arrayContains(array: Array<Int>, searchValue: Int): Boolean{
