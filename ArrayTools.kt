@@ -79,24 +79,31 @@ fun encrypt(normalText: String, shiftValue: Int): String{
 fun arrayAvg(array: Array<Int>): Double {
     //initialized to store the sum of all elements of parameter array
     var sumOfInteger: Int = 0
+    var average: Double = 0.0
 
-    //loop goes through the element of given parameter array
-    for (i in array.indices) {
-        //collect the sum of integer of array elements
-        sumOfInteger += array[i]
+    if(array.size != 0){
+        //loop goes through the element of given parameter array
+        for (i in array.indices) {
+            //collect the sum of integer of array elements
+            sumOfInteger += array[i]
+        }
+        //calculation
+        average = (sumOfInteger / array.size).toDouble()
+        //average value of an array
+        return average
     }
 
-    //average value of an array
-    return (sumOfInteger / 2.0)
+    //returns default average value
+    return average
 }
 
 //test array average function
 fun testArrayAvgFun(){
     //initialize test and result of the reversed arrays
     val t1 = arrayOf<Int>(1,2,3,4,5)
-    val r1 = 7.5
+    val r1 = 3
     val t2 = arrayOf<Int>(11,21,42,73,94,51)
-    val r2 = 146.0
+    val r2 = 48.666666666667
     val t3 = arrayOf<Int>()
     val r3 = 0.0
 
